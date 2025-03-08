@@ -4,3 +4,4 @@
 *.log*
 terraform-provider-aws
 *.tfvars
+terraform.tfstate

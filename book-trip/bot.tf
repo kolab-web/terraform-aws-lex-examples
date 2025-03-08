@@ -8,12 +8,16 @@ resource "aws_lex_bot" "book_trip" {
 
   child_directed = false
 
+  enable_model_improvements = true
+
+  process_behavior = "BUILD"
+
   clarification_prompt {
     max_attempts = 2
 
     message {
       content_type = "PlainText"
-      content      = "Sorry, what can I help you with?"
+      content      = "Sorry, what can I help you with"
     }
   }
 
@@ -33,6 +37,6 @@ resource "aws_lex_bot" "book_trip" {
 
   locale           = "en-US"
   name             = "BookTrip"
-  process_behavior = "SAVE"
+  # process_behavior = "SAVE"
   voice_id         = "Salli"
 }

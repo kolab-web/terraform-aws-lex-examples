@@ -46,7 +46,7 @@ resource "aws_lex_intent" "book_car" {
       max_attempts = 2
 
       message {
-        content      = "In what city do you need to rent a car?"
+        content      = "In what city do you need to rent a car"
         content_type = "PlainText"
       }
     }
@@ -63,7 +63,7 @@ resource "aws_lex_intent" "book_car" {
       max_attempts = 2
 
       message {
-        content      = "What day do you want to start your rental?"
+        content      = "What day do you want to start your rental"
         content_type = "PlainText"
       }
     }
@@ -80,7 +80,7 @@ resource "aws_lex_intent" "book_car" {
       max_attempts = 2
 
       message {
-        content      = "What day do you want to return the car?"
+        content      = "What day do you want to return the car"
         content_type = "PlainText"
       }
     }
@@ -97,7 +97,7 @@ resource "aws_lex_intent" "book_car" {
       max_attempts = 2
 
       message {
-        content      = "How old is the driver for this rental?"
+        content      = "How old is the driver for this rental"
         content_type = "PlainText"
       }
     }
