@@ -14,7 +14,7 @@ pipeline{
         stage('Initializing Terraform'){
             steps{
                 script{
-                    dir('terraform'){
+                    dir('book-trip'){
                          sh 'terraform init'
                     }
                 }
@@ -23,7 +23,7 @@ pipeline{
         stage('Validating Terraform'){
             steps{
                 script{
-                    dir('terraform'){
+                    dir('book-trip'){
                          sh 'terraform validate'
                     }
                 }
@@ -38,7 +38,7 @@ pipeline{
              steps{
                  sh 'echo $(pwd)'
                  sh 'cd book-trip'
-                 sh 'echo $(pwd)'
+                sh 'echo $(pwd)'
                  sh 'terraform --version'
                 }
         }         
