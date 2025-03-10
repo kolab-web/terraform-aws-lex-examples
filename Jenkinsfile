@@ -37,6 +37,7 @@ pipeline{
         stage('Terraform version'){
              steps{
                  sh 'cd book-trip'
+                 sh 'echo $(pwd)'
                  sh 'terraform --version'
                 }
         }
@@ -45,14 +46,6 @@ pipeline{
             steps {
                 sh "trivy fs . > trivyfs.txt"
             }
-        }
-        stage("quality gate"){
-           steps {
-                script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token' 
-                }
-            } 
-        
         }
         stage('OWASP Dependency Check') {
             steps {
@@ -67,6 +60,7 @@ pipeline{
                    withCredentials([string(credentialsId: 'snyk', variable: 'SNYK_TOKEN')]) {
                        sh 'echo $(pwd)'
                        sh 'snyk code test||true'
+                       sh 'echo Snyk Test Completed'
                    }
                }
            }
