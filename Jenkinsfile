@@ -36,6 +36,7 @@ pipeline{
         }
         stage('Terraform version'){
              steps{
+                dir('/var/lib/jenkins/workspace/AWS_Lex/book-trip') {
                  sh 'cd book-trip'
                  sh 'echo $(pwd)'
                  sh 'terraform --version'
