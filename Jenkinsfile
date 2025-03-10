@@ -36,13 +36,12 @@ pipeline{
         }
         stage('Terraform version'){
              steps{
-                dir('/var/lib/jenkins/workspace/AWS_Lex/book-trip') {
+                 sh 'echo $(pwd)'
                  sh 'cd book-trip'
                  sh 'echo $(pwd)'
                  sh 'terraform --version'
                 }
-        }
-         
+        }         
         stage('TRIVY FS SCAN') {
             steps {
                 sh "trivy fs . > trivyfs.txt"
@@ -82,4 +81,4 @@ pipeline{
             }
         }
     }
- }
+}
