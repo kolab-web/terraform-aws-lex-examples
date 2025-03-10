@@ -67,7 +67,6 @@ pipeline{
                    withCredentials([string(credentialsId: 'snyk', variable: 'SNYK_TOKEN')]) {
                        sh 'echo $(pwd)'
                        sh 'snyk code test||true'
-                        sh "echo running Snyk Test"
                    }
                }
            }
